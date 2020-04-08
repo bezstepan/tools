@@ -1,0 +1,10 @@
+{
+  "name": "test_data_generator",
+  "dependencies": {
+    "bwip-js": "^2.0.6",
+    "evrythng": "^5.8.0",
+    "fs": "^0.0.1-security",
+    "locutus": "^2.0.11",
+    "qrcode": "^1.4.4"
+  }
+}

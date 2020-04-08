@@ -1,0 +1,48 @@
+# Codeception Test Suite Configuration
+#
+# Suite for acceptance tests.
+# Perform tests in browser using the PhpBrowser or PhpBrowser.
+# If you need both PhpBrowser and PHPBrowser tests - create a separate suite.
+
+actor: AcceptanceTester
+modules:
+    enabled:
+        - PhpBrowser:
+            url: 'https://api.evrythng.com/'
+        - Asserts
+        - Sequence
+        - \Helper\Acceptance
+        - \Helper\CurlHelper
+        - \Helper\CurlDataHelper
+        - \Helper\GenerateGtin
+
+# env-depended
+env:
+    prod:
+        modules:
+            enabled:
+                - PhpBrowser:
+                    url: "https://api.evrythng.com/"
+                - \Helper\ConfigHelper:
+                    # General settings
+                    operatorApiKey: 
+                    trustedApiKey: 
+                    projectId: 
+                    factory: ""
+                    dummyFactory: "dummyFactory"
+                    # Product settings
+                    upca: 1 # amount
+                    ean13: 1 # amount
+                    ean8: 1 # amount
+                    productNotAssignedToApp: 1 # 1 - enable, other - disable
+                    # PO settings
+                    purchaseOrderForMultProducts: 1 # 1 - enable, other - disable, purchaseOrderAmountOfThngs will also have an effect on this (purchaseOrderAmountOfThngs*4 in total)
+                    purchaseOrderAmountOfThngs: 5 # amount of things which is required to fulfill the PO
+                    # Thngs settings
+                    thngsAssignedToFactory: 40 # amount of valid 15 chars thngs
+                    thngNotFound: 1 # 1 - enable, other - disable
+                    notEncodedThngs: 2 # amount
+                    not15thngs: 1 # 1 - enable, other - disable, generates 14 and 16 chars thng per iteration
+                    thngsAssignedToAnotherFactory: 2 # amount 
+                    24ThngsEncoded: 4 # amount of valid 24 chars thngs
+                    24ThngsNotEncoded: 1 # amount of valid 24 chars thngs, but not encoded (negative)

@@ -1,0 +1,13 @@
+{
+    "name": "sbez/curl-endpoints",
+    "require": {
+        "picqer/php-barcode-generator": "v0.3",
+        "endroid/qr-code": "^3.6"
+    },
+    "authors": [
+        {
+            "name": "Stepan Beznosov",
+            "email": "stepan.beznosov@evrythng.com"
+        }
+    ]
+}
